@@ -2,7 +2,6 @@ package com.example.tmall.mbg.mapper;
 
 import com.example.tmall.mbg.model.PmsBrand;
 import com.example.tmall.mbg.model.PmsBrandExample;
-
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
