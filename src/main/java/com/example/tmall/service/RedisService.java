@@ -27,6 +27,14 @@ public interface RedisService {
     boolean expire(String key, long expire);
 
     /**
+     * 获取剩余过期时间
+     *
+     * @param key
+     * @return
+     */
+    Long getExpire(String key);
+
+    /**
      * 删除数据
      *
      * @param key String
