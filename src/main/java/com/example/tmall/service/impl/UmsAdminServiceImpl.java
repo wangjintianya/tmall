@@ -35,6 +35,9 @@ public class UmsAdminServiceImpl implements UmsAdminService {
     @Autowired
     private JwtTokenUtil jwtTokenUtil;
 
+    @Autowired
+    private UmsAdminRoleRelationDao adminRoleRelationDao;
+
 
     @Override
     public UmsAdmin getAdminByUsername(String username) {
@@ -86,6 +89,6 @@ public class UmsAdminServiceImpl implements UmsAdminService {
 
     @Override
     public List<UmsPermission> getPermissionList(Long adminId) {
-        return null;
+        return adminRoleRelationDao.getPermissionList(adminId);
     }
 }

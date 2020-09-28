@@ -2,6 +2,7 @@ package com.example.tmall.common.utils;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -24,8 +25,20 @@ public class JwtTokenUtil {
     private Long expiration;
 
     private String generateToken(Map<String, Object> claims) {
-        return "";
+        return Jwts.builder()
+                .setClaims(claims)
+                .setExpiration(generateExpirationDate())
+                .signWith(SignatureAlgorithm.HS512, secret)
+                .compact();
     }
+
+    /**
+     * 生成token的过期时间
+     */
+    private Date generateExpirationDate() {
+        return new Date(System.currentTimeMillis() + expiration * 1000);
+    }
+
 
     /**
      * 从token中获取JWT中的负载

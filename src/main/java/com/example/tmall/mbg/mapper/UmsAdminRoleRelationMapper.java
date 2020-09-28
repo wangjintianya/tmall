@@ -5,6 +5,7 @@ import com.example.tmall.mbg.model.UmsAdminRoleRelationExample;
 
 import java.util.List;
 
+import com.example.tmall.mbg.model.UmsPermission;
 import org.apache.ibatis.annotations.Param;
 
 public interface UmsAdminRoleRelationMapper {
@@ -29,4 +30,6 @@ public interface UmsAdminRoleRelationMapper {
     int updateByPrimaryKeySelective(UmsAdminRoleRelation record);
 
     int updateByPrimaryKey(UmsAdminRoleRelation record);
+
+    List<UmsPermission> getPermissionList(@Param("adminId") Long adminId);
 }

@@ -33,7 +33,11 @@ public class Swagger2Config {
                 //为当前包的 controller 生成 API 文档
                 .apis(RequestHandlerSelectors.basePackage("com.example.tmall.controller"))
                 .paths(PathSelectors.any())
-                .build();
+                .build()
+                //添加登录认证
+                .securitySchemes(securitySchemes())
+                .securityContexts(securityContexts());
+
     }
 
     private ApiInfo apiInfo() {
